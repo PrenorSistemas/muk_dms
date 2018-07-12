@@ -307,8 +307,8 @@ class Directory(dms_base.DMSModel):
         else:
             childs = self.parent_directory.child_directories.mapped(lambda rec: [rec.id, rec.name])
         duplicates = [rec for rec in childs if rec[1] == self.name and rec[0] != self.id]
-        if duplicates:
-            raise ValidationError("A directory with the same name already exists.")
+        #if duplicates:
+        #    raise ValidationError("A directory with the same name already exists.")
     
     def _after_create(self, vals):
         record = super(Directory, self)._after_create(vals)
