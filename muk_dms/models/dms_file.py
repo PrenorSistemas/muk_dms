@@ -258,7 +258,8 @@ class File(dms_base.DMSModel):
         childs = self.directory.files.mapped(lambda rec: [rec.id, rec.name])
         duplicates = [rec for rec in childs if rec[1] == self.name and rec[0] != self.id]
         if duplicates:
-            raise ValidationError("A file with the same name already exists.")
+            #raise ValidationError("A file with the same name already exists.")
+            pass
     
     def _after_create(self, vals):
         record = super(File, self)._after_create(vals)
